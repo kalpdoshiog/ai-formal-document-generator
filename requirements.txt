@@ -1,0 +1,9 @@
+django
+google-generativeai
+python-dotenv
+reportlab
+python-docx
+weasyprint
+PyPDF2
+pdf2image
+Pillow

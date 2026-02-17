@@ -3,34 +3,64 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.pyc
 
 # Virtual environment
 venv/
 env/
 .venv/
+ENV/
+env.bak/
+venv.bak/
 
 # Environment variables
 .env
+.env.local
 
 # Django
 db.sqlite3
 db.sqlite3-journal
 *.log
+debug.log
 
 # Media uploads
 media/
+staticfiles/
 
 # IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
+.project
+.pydevproject
+.settings/
 
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Distribution
 dist/
 build/
 *.egg-info/
+*.egg
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+
+# Large files (if any)
+*.mp4
+*.avi
+*.zip
+*.tar.gz

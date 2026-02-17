@@ -14,7 +14,7 @@ _gemini_model = None
 
 
 def get_gemini_model():
-    """Return (and lazily initialise) the Gemini generative model."""
+    """Return (and lazily initialize) the Gemini generative model."""
     global _gemini_model
     if _gemini_model is None:
         api_key = getattr(settings, 'GEMINI_API_KEY', '')

@@ -191,15 +191,14 @@
             <div class="row mb-3">
                 <div class="col-md-4">
                     <label class="form-label">Language / भाषा</label>
-                    <select name="language" id="office_language" class="form-select" onchange="updateOfficeRef()" required>
-                        <option value="">-- Select Language --</option>
-                        <option value="en">English</option>
+                    <select name="language" id="office_language" class="form-select" onchange="updateOfficeRef()">
+                        <option value="en" selected>English</option>
                         <option value="hi">हिंदी (Hindi)</option>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <label class="form-label">Date / दिनांक</label>
-                    <input type="date" name="date" class="form-control" required>
+                    <input type="date" name="date" id="office_date" class="form-control">
                 </div>
                 <div class="col-md-4">
                     <label class="form-label">Reference / संदर्भ</label>
@@ -269,15 +268,14 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="form-label">Language / भाषा</label>
-                    <select name="language" id="circular_language" class="form-select" required>
-                        <option value="">-- Select Language --</option>
-                        <option value="en">English</option>
+                    <select name="language" id="circular_language" class="form-select">
+                        <option value="en" selected>English</option>
                         <option value="hi">हिंदी (Hindi)</option>
                     </select>
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Date / दिनांक</label>
-                    <input type="date" name="date" class="form-control" required>
+                    <input type="date" name="date" id="circular_date" class="form-control">
                 </div>
             </div>
 
@@ -350,21 +348,20 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="form-label">Language / भाषा</label>
-                    <select name="language" id="policy_language" class="form-select" required>
-                        <option value="">-- Select Language --</option>
-                        <option value="en">English</option>
-                        <option value="hi">हिंदी (Hindi)</option>
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <label class="form-label">Date / दिनांक</label>
-                    <input type="date" name="date" class="form-control" required>
-                </div>
+                    <select name="language" id="policy_language" class="form-select">
+                        <option value="en" selected>English</option>
+                    <option value="hi">हिंदी (Hindi)</option>
+                </select>
             </div>
+            <div class="col-md-6">
+                <label class="form-label">Date / दिनांक</label>
+                <input type="date" name="date" id="policy_date" class="form-control">
+            </div>
+        </div>
 
-            <!-- From Section -->
-            <div class="collapsible-section mb-3">
-                <div class="collapsible-header" onclick="toggleCollapse('policy_from_content')">
+        <!-- From Section -->
+        <div class="collapsible-section mb-3">
+            <div class="collapsible-header" onclick="toggleCollapse('policy_from_content')">
                     <span>From (Position) / से (पद)</span>
                     <span class="arrow">▶</span>
                 </div>
@@ -517,4 +514,12 @@ function generateCircularBody() {
 function generatePolicyBody() {
     generateAIBody('{% url "generate_policy_body" %}', 'policy_body_prompt', 'policy_language', 'policy_body', 'btn_gen_policy');
 }
+
+/* ---------- Set today's date as default ---------- */
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('office_date').value = today;
+    document.getElementById('circular_date').value = today;
+    document.getElementById('policy_date').value = today;
+});
 {% endblock %}

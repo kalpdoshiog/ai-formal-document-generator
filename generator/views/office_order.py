@@ -30,7 +30,7 @@ def generate_body(request):
         return JsonResponse({"error": "Invalid request"}, status=400)
 
     prompt = request.POST.get("body_prompt", "").strip()
-    lang = request.POST.get("language", "en")
+    lang = request.POST.get("language", "en").strip() or "en"
     today = date.today().strftime("%d-%m-%Y")
 
     if lang == "hi":
@@ -77,7 +77,7 @@ def result_office_order(request):
         return redirect("home")
 
     OFFICE_ORDER = get_office_order_data()
-    lang = request.POST.get("language", "en")
+    lang = request.POST.get("language", "en").strip() or "en"
     raw_date = request.POST.get("date")
     formatted_date = format_date_ddmmyyyy(raw_date) if raw_date else timezone.now().strftime("%d-%m-%Y")
 

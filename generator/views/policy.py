@@ -34,7 +34,7 @@ def generate_policy_body(request):
         return JsonResponse({"error": "Invalid request"}, status=400)
 
     prompt = request.POST.get("body_prompt", "").strip()
-    lang = request.POST.get("language", "en")
+    lang = request.POST.get("language", "en").strip() or "en"
 
     if lang == "hi":
         system_prompt = """
@@ -84,7 +84,7 @@ def result_policy(request):
         return redirect("home")
 
     POLICY = get_policy_data()
-    lang = request.POST.get("language")
+    lang = request.POST.get("language", "en").strip() or "en"
     raw_date = request.POST.get("date")
     formatted_date = format_date_ddmmyyyy(raw_date) if raw_date else timezone.now().strftime("%d-%m-%Y")
     subject = request.POST.get("subject")

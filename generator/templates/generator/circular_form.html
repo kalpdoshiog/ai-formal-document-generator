@@ -40,15 +40,14 @@
 <div class="row mb-3">
     <div class="col-md-6">
         <label class="form-label fw-bold">Language / भाषा</label>
-        <select name="language" id="language" class="form-select" required>
-            <option value="">-- Select Language --</option>
-            <option value="en">English</option>
+        <select name="language" id="language" class="form-select">
+            <option value="en" selected>English</option>
             <option value="hi">हिंदी (Hindi)</option>
         </select>
     </div>
     <div class="col-md-6">
         <label class="form-label fw-bold">Date / दिनांक</label>
-        <input type="date" name="date" class="form-control" required>
+        <input type="date" name="date" id="circular_form_date" class="form-control">
     </div>
 </div>
 
@@ -143,6 +142,12 @@ function generateBody() {
         alert('Error generating body: ' + err);
     });
 }
+
+/* Set today's date as default */
+document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('circular_form_date').value = today;
+});
 </script>
 
 </body>

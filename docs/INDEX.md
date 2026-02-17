@@ -53,6 +53,17 @@ docs/
    - Benefits of new structure
    - Next steps
 
+4. **[GITHUB_UPLOAD_GUIDE.md](beginner/GITHUB_UPLOAD_GUIDE.md)** - Upload to GitHub
+   - Complete upload instructions
+   - Personal Access Token setup
+   - Security checklist
+   - Troubleshooting
+
+5. **[GITHUB_CHECKLIST.md](beginner/GITHUB_CHECKLIST.md)** - Quick upload checklist
+   - Step-by-step checklist
+   - Quick commands
+   - Verification steps
+
 **Time Investment:** 30-60 minutes
 
 ---
